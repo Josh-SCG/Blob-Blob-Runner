@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv263mc36sxa"
-path="res://.godot/imported/splashFrames.png-232cdd97e46dded7520e430d9405110f.ctex"
+uid="uid://bd3yu2ngcr6pl"
+path="res://.godot/imported/play_hover.png-42966681f542a30b8f2f4ceb68286439.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/splashFrames.png"
-dest_files=["res://.godot/imported/splashFrames.png-232cdd97e46dded7520e430d9405110f.ctex"]
+source_file="res://Assets/Art/UI/play_hover.png"
+dest_files=["res://.godot/imported/play_hover.png-42966681f542a30b8f2f4ceb68286439.ctex"]
 
 [params]
 

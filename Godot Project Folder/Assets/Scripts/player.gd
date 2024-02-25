@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-const GRAVITY =  20 
+const GRAVITY =  15
 const MAX_FALL_SPEED = 400
 const ACCELERATION = 8
-const JUMP_FORCE = 360
+const JUMP_FORCE = 250
 
 @onready var globalRef = get_node("/root/Global")
-
+@export var PausePopUp:PackedScene
 var popUp = null
 
 var start = false
@@ -16,14 +16,11 @@ var is_jumping = false
 
 var movementVector = Vector2.ZERO
 
-
-func startFunc():
-	start = true
-	animation.play("running")
-
 func _physics_process(_delta):
 	movement()
-
+	pauseGame()
+	if globalRef.playerDead:
+		dead()
 
 func movement():
 	velocity.y += GRAVITY #Always pushes player down
@@ -46,3 +43,25 @@ func movement():
 	if !is_on_floor():
 		animation.pause()
 	move_and_slide()
+
+func pauseGame(): #Needs popup as unpause process can't happen if game paused; maybe make own sceene
+	if Input.is_action_just_pressed("Pause"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_parent().paused()
+		globalRef.shaderFloor = 0
+		globalRef.shaderBackground = 0
+		get_parent().changeSpeed1()
+		popUp = PausePopUp.instantiate()
+		add_child(popUp)
+		get_tree().paused = true
+
+func speedChange():
+	get_parent().changeSpeed2()
+	
+func dead():
+	globalRef.resetVar()
+	globalRef.shaderFloor = 0.5
+	globalRef.shaderBackground = 2
+	get_parent().changeSpeed1()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

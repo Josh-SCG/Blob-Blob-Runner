@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://utxevvnplvco"
-path="res://.godot/imported/splash_large.png-d9f2e4b7b999acc5587f858f63e8e495.ctex"
+uid="uid://iuj41kfxatt8"
+path="res://.godot/imported/achieve_hover.png-db6ec3adcb8655ad7c5dc10fbec3edaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/splash_large.png"
-dest_files=["res://.godot/imported/splash_large.png-d9f2e4b7b999acc5587f858f63e8e495.ctex"]
+source_file="res://Assets/Art/UI/achieve_hover.png"
+dest_files=["res://.godot/imported/achieve_hover.png-db6ec3adcb8655ad7c5dc10fbec3edaf.ctex"]
 
 [params]
 

@@ -1,0 +1,201 @@
+[gd_scene load_steps=9 format=3 uid="uid://6dvjo7r64u3o"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/how_to.gd" id="1_xrdye"]
+[ext_resource type="Texture2D" uid="uid://c5qpivjw7wgga" path="res://Assets/Art/bricks.png" id="2_a8qeh"]
+[ext_resource type="Texture2D" uid="uid://bt7yerfe55xli" path="res://Assets/Art/UI/cross_normal.png" id="3_1apr7"]
+[ext_resource type="Texture2D" uid="uid://buhhsdk72k6jr" path="res://Assets/Art/UI/cross_pressed.png" id="4_ky10g"]
+[ext_resource type="Texture2D" uid="uid://d0v1ywvrpo0v3" path="res://Assets/Art/UI/cross_hover.png" id="5_jecs8"]
+[ext_resource type="Texture2D" uid="uid://lg1cxlj0scge" path="res://Assets/Art/spriteSheet.png" id="6_b4n80"]
+[ext_resource type="Texture2D" uid="uid://51vvbx4dcq2h" path="res://Assets/Art/box.png" id="7_rikt0"]
+[ext_resource type="PackedScene" uid="uid://dgtkww5pnaw5e" path="res://Scenes/info_box.tscn" id="8_wmmen"]
+
+[node name="how_to" type="Node2D"]
+script = ExtResource("1_xrdye")
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = -6.0
+offset_top = -8.0
+offset_right = 165.0
+offset_bottom = 91.0
+texture = ExtResource("2_a8qeh")
+stretch_mode = 1
+metadata/_edit_group_ = true
+
+[node name="shadow" type="ColorRect" parent="background"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 175.0
+offset_bottom = 106.0
+color = Color(0, 0, 0, 0.843137)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(80, 45)
+zoom = Vector2(6, 6)
+
+[node name="close" type="TextureButton" parent="."]
+offset_left = 144.0
+offset_right = 160.0
+offset_bottom = 16.0
+texture_normal = ExtResource("3_1apr7")
+texture_pressed = ExtResource("4_ky10g")
+texture_hover = ExtResource("5_jecs8")
+
+[node name="Q" type="Sprite2D" parent="."]
+position = Vector2(13, 13)
+texture = ExtResource("6_b4n80")
+hframes = 16
+vframes = 12
+frame = 105
+
+[node name="infoBox" type="ColorRect" parent="Q"]
+offset_left = 20.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 6.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="Q/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("7_rikt0")
+
+[node name="Q_label" type="RichTextLabel" parent="Q/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = " Slow down"
+
+[node name="W" type="Sprite2D" parent="."]
+position = Vector2(13, 34)
+texture = ExtResource("6_b4n80")
+hframes = 16
+vframes = 12
+frame = 120
+
+[node name="infoBox" type="ColorRect" parent="W"]
+offset_left = 20.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 6.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="W/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("7_rikt0")
+
+[node name="W_label" type="RichTextLabel" parent="W/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "      Jump"
+
+[node name="E" type="Sprite2D" parent="."]
+position = Vector2(13, 55)
+texture = ExtResource("6_b4n80")
+hframes = 16
+vframes = 12
+frame = 104
+
+[node name="infoBox" type="ColorRect" parent="E"]
+offset_left = 20.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 6.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="E/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("7_rikt0")
+
+[node name="E_label" type="RichTextLabel" parent="E/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "  Speed Up"
+
+[node name="P" type="Sprite2D" parent="."]
+position = Vector2(13, 76)
+texture = ExtResource("6_b4n80")
+hframes = 16
+vframes = 12
+frame = 106
+
+[node name="infoBox" type="ColorRect" parent="P"]
+offset_left = 20.0
+offset_top = -5.0
+offset_right = 60.0
+offset_bottom = 7.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="P/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("7_rikt0")
+
+[node name="P_label" type="RichTextLabel" parent="P/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "     Pause"
+
+[node name="InfoBox" parent="." instance=ExtResource("8_wmmen")]
+position = Vector2(84, 13)
+
+[node name="info" type="RichTextLabel" parent="InfoBox"]
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 1024.0
+offset_bottom = 1282.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "Run along and dodge enemies while collecting items. 
+The faster you go the more points you get!"
+
+[node name="goalBox" type="ColorRect" parent="InfoBox"]
+offset_left = 8.0
+offset_top = -9.0
+offset_right = 48.0
+offset_bottom = 3.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="InfoBox/goalBox"]
+position = Vector2(20, 6)
+texture = ExtResource("7_rikt0")
+
+[node name="goal" type="RichTextLabel" parent="InfoBox/goalBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = " Gameplay"
+
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

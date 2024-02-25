@@ -1,0 +1,119 @@
+[gd_scene load_steps=17 format=3 uid="uid://djk6fm7y0hpds"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/main_menu.gd" id="1_3wxxk"]
+[ext_resource type="Texture2D" uid="uid://c5qpivjw7wgga" path="res://Assets/Art/bricks.png" id="1_ab5nu"]
+[ext_resource type="Texture2D" uid="uid://lg1cxlj0scge" path="res://Assets/Art/spriteSheet.png" id="1_ihgw2"]
+[ext_resource type="Texture2D" uid="uid://csadttroiicpx" path="res://Assets/Art/floorSprite.png" id="3_eqy6x"]
+[ext_resource type="Texture2D" uid="uid://b33vqepj0vkcc" path="res://Assets/Art/UI/play_normal.png" id="4_f28k2"]
+[ext_resource type="Texture2D" uid="uid://bctpf3gnja5l6" path="res://Assets/Art/UI/play_pressed.png" id="5_m5uhf"]
+[ext_resource type="Texture2D" uid="uid://bd3yu2ngcr6pl" path="res://Assets/Art/UI/play_hover.png" id="6_gptqo"]
+[ext_resource type="Texture2D" uid="uid://bt7yerfe55xli" path="res://Assets/Art/UI/cross_normal.png" id="7_1btdb"]
+[ext_resource type="Texture2D" uid="uid://buhhsdk72k6jr" path="res://Assets/Art/UI/cross_pressed.png" id="8_lsb0i"]
+[ext_resource type="Texture2D" uid="uid://d0v1ywvrpo0v3" path="res://Assets/Art/UI/cross_hover.png" id="9_itb1j"]
+[ext_resource type="Texture2D" uid="uid://b8kqksyo3kfd4" path="res://Assets/Art/UI/howTo_normal.png" id="10_jy4nq"]
+[ext_resource type="Texture2D" uid="uid://nxf0kov7061o" path="res://Assets/Art/UI/howTo_pressed.png" id="11_bdjf0"]
+[ext_resource type="Texture2D" uid="uid://c3d7f2etj5ter" path="res://Assets/Art/UI/howTo_hover.png" id="12_jre4b"]
+[ext_resource type="Texture2D" uid="uid://dhyte3tuomusr" path="res://Assets/Art/UI/achieve_normal.png" id="13_5qtjs"]
+[ext_resource type="Texture2D" uid="uid://bmy2mmybaa1t5" path="res://Assets/Art/UI/achieve_pressed.png" id="14_2m4oj"]
+[ext_resource type="Texture2D" uid="uid://iuj41kfxatt8" path="res://Assets/Art/UI/achieve_hover.png" id="15_o2aeb"]
+
+[node name="mainMenu" type="Node2D"]
+script = ExtResource("1_3wxxk")
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = -6.0
+offset_top = -8.0
+offset_right = 165.0
+offset_bottom = 91.0
+texture = ExtResource("1_ab5nu")
+stretch_mode = 1
+metadata/_edit_group_ = true
+
+[node name="shadow" type="ColorRect" parent="background"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 175.0
+offset_bottom = 106.0
+color = Color(0, 0, 0, 0.843137)
+
+[node name="floor" type="TextureRect" parent="."]
+offset_left = -10.0
+offset_top = 80.0
+offset_right = 182.0
+offset_bottom = 96.0
+texture = ExtResource("3_eqy6x")
+stretch_mode = 1
+
+[node name="titleMain" type="Sprite2D" parent="."]
+position = Vector2(73, 14)
+texture = ExtResource("1_ihgw2")
+hframes = 2
+vframes = 12
+frame = 1
+
+[node name="titleSub" type="Sprite2D" parent="."]
+position = Vector2(76, 32)
+texture = ExtResource("1_ihgw2")
+hframes = 4
+vframes = 12
+frame = 7
+
+[node name="blob" type="Sprite2D" parent="."]
+position = Vector2(25, 60)
+texture = ExtResource("1_ihgw2")
+hframes = 16
+vframes = 12
+frame = 149
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(80, 45)
+zoom = Vector2(6, 6)
+
+[node name="enemy" type="Sprite2D" parent="."]
+position = Vector2(52, 72)
+texture = ExtResource("1_ihgw2")
+flip_h = true
+hframes = 16
+vframes = 12
+frame = 35
+
+[node name="start" type="TextureButton" parent="."]
+offset_left = 73.0
+offset_top = 52.0
+offset_right = 89.0
+offset_bottom = 68.0
+texture_normal = ExtResource("4_f28k2")
+texture_pressed = ExtResource("5_m5uhf")
+texture_hover = ExtResource("6_gptqo")
+
+[node name="howTo" type="TextureButton" parent="."]
+offset_left = 92.0
+offset_top = 52.0
+offset_right = 108.0
+offset_bottom = 68.0
+texture_normal = ExtResource("10_jy4nq")
+texture_pressed = ExtResource("11_bdjf0")
+texture_hover = ExtResource("12_jre4b")
+
+[node name="achievements" type="TextureButton" parent="."]
+offset_left = 111.0
+offset_top = 52.0
+offset_right = 127.0
+offset_bottom = 68.0
+texture_normal = ExtResource("13_5qtjs")
+texture_pressed = ExtResource("14_2m4oj")
+texture_hover = ExtResource("15_o2aeb")
+
+[node name="close" type="TextureButton" parent="."]
+visible = false
+offset_left = 143.0
+offset_right = 159.0
+offset_bottom = 16.0
+texture_normal = ExtResource("7_1btdb")
+texture_pressed = ExtResource("8_lsb0i")
+texture_hover = ExtResource("9_itb1j")
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="howTo" to="." method="_on_how_to_pressed"]
+[connection signal="pressed" from="achievements" to="." method="_on_achievements_pressed"]

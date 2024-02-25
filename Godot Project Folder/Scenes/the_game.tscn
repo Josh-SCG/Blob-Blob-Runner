@@ -1,0 +1,162 @@
+[gd_scene load_steps=19 format=3 uid="uid://bjljsrbv0biqj"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/runnerLevel.gd" id="1_e1ucc"]
+[ext_resource type="Shader" path="res://Assets/Scripts/moveTexture.gdshader" id="2_4mu1l"]
+[ext_resource type="Texture2D" uid="uid://c5qpivjw7wgga" path="res://Assets/Art/bricks.png" id="3_s5pg2"]
+[ext_resource type="Texture2D" uid="uid://csadttroiicpx" path="res://Assets/Art/floorSprite.png" id="4_1xwtm"]
+[ext_resource type="Script" path="res://Assets/Scripts/player.gd" id="5_cfk4s"]
+[ext_resource type="Texture2D" uid="uid://51vvbx4dcq2h" path="res://Assets/Art/box.png" id="5_cfnry"]
+[ext_resource type="Texture2D" uid="uid://lg1cxlj0scge" path="res://Assets/Art/spriteSheet.png" id="6_lhkpj"]
+[ext_resource type="PackedScene" uid="uid://cmwahmj07kg1o" path="res://Scenes/pause_screen.tscn" id="7_61dea"]
+[ext_resource type="Script" path="res://Assets/Scripts/spawner.gd" id="9_tg6m2"]
+[ext_resource type="PackedScene" uid="uid://bprrglww8ex53" path="res://Scenes/enemy_1.tscn" id="10_ktwry"]
+[ext_resource type="PackedScene" uid="uid://d32nbnva3uh48" path="res://Scenes/collectable.tscn" id="11_han1p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p5ik2"]
+shader = ExtResource("2_4mu1l")
+shader_parameter/speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i4uwn"]
+shader = ExtResource("2_4mu1l")
+shader_parameter/speed = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxa87"]
+size = Vector2(213, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ppft"]
+size = Vector2(16, 14)
+
+[sub_resource type="Animation" id="Animation_hnefe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [130]
+}
+
+[sub_resource type="Animation" id="Animation_gubvx"]
+resource_name = "running"
+length = 1.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [130, 131, 132, 133, 134, 135]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lpuaj"]
+_data = {
+"RESET": SubResource("Animation_hnefe"),
+"running": SubResource("Animation_gubvx")
+}
+
+[node name="the_game" type="Node2D"]
+script = ExtResource("1_e1ucc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(80, 45)
+zoom = Vector2(6, 6)
+
+[node name="background" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_p5ik2")
+offset_left = -6.0
+offset_top = -8.0
+offset_right = 165.0
+offset_bottom = 91.0
+texture = ExtResource("3_s5pg2")
+stretch_mode = 1
+metadata/_edit_group_ = true
+
+[node name="shadow" type="ColorRect" parent="background"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 175.0
+offset_bottom = 106.0
+color = Color(0, 0, 0, 0.682353)
+
+[node name="floor" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_i4uwn")
+offset_left = -12.0
+offset_top = 74.0
+offset_right = 180.0
+offset_bottom = 90.0
+texture = ExtResource("4_1xwtm")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor/StaticBody2D"]
+position = Vector2(106.5, 8)
+shape = SubResource("RectangleShape2D_dxa87")
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(20, 65)
+script = ExtResource("5_cfk4s")
+PausePopUp = ExtResource("7_61dea")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0ppft")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+texture = ExtResource("6_lhkpj")
+hframes = 16
+vframes = 12
+frame = 130
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_lpuaj")
+}
+autoplay = "running"
+
+[node name="scoreNode" type="ColorRect" parent="."]
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 44.0
+offset_bottom = 15.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="scoreNode"]
+position = Vector2(20, 6)
+texture = ExtResource("5_cfnry")
+
+[node name="scoreLabel" type="RichTextLabel" parent="scoreNode"]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 1542.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "Score: 0"
+
+[node name="spawner" type="Node2D" parent="."]
+position = Vector2(190, 66)
+script = ExtResource("9_tg6m2")
+items = Array[PackedScene]([ExtResource("10_ktwry"), ExtResource("11_han1p")])
+metadata/_edit_group_ = true
+
+[node name="Timer" type="Timer" parent="spawner"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="spawner/Timer" to="spawner" method="_on_timer_timeout"]

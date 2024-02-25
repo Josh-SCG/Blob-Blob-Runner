@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Blob Blob Runner"
 config/description="An endless runner game!"
-run/main_scene="res://the_game.tscn"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=144
 boot_splash/bg_color=Color(1, 0.682353, 0.788235, 1)
@@ -32,7 +32,7 @@ window/size/viewport_width=960
 window/size/viewport_height=540
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
-mouse_cursor/custom_image="res://Assets/Art/cursor.png"
+mouse_cursor/custom_image="res://Assets/Art/UI/cursor.png"
 
 [input]
 
@@ -51,6 +51,12 @@ speedDown={
 speedUp={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
+]
+}
+Pause={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"echo":false,"script":null)
 ]
 }
 

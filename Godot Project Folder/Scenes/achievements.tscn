@@ -1,0 +1,233 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyyi57l5ryhdh"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/achievements.gd" id="1_3xcdh"]
+[ext_resource type="Texture2D" uid="uid://c5qpivjw7wgga" path="res://Assets/Art/bricks.png" id="2_yis4c"]
+[ext_resource type="Texture2D" uid="uid://bt7yerfe55xli" path="res://Assets/Art/UI/cross_normal.png" id="3_gouhi"]
+[ext_resource type="Texture2D" uid="uid://buhhsdk72k6jr" path="res://Assets/Art/UI/cross_pressed.png" id="4_46fy8"]
+[ext_resource type="Texture2D" uid="uid://d0v1ywvrpo0v3" path="res://Assets/Art/UI/cross_hover.png" id="5_4nowe"]
+[ext_resource type="Texture2D" uid="uid://51vvbx4dcq2h" path="res://Assets/Art/box.png" id="6_o7hrm"]
+[ext_resource type="Texture2D" uid="uid://lg1cxlj0scge" path="res://Assets/Art/spriteSheet.png" id="7_bhu5k"]
+
+[node name="achievements" type="Node2D"]
+script = ExtResource("1_3xcdh")
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = -6.0
+offset_top = -8.0
+offset_right = 165.0
+offset_bottom = 91.0
+texture = ExtResource("2_yis4c")
+stretch_mode = 1
+metadata/_edit_group_ = true
+
+[node name="shadow" type="ColorRect" parent="background"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 175.0
+offset_bottom = 106.0
+color = Color(0, 0, 0, 0.843137)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(80, 45)
+zoom = Vector2(6, 6)
+
+[node name="close" type="TextureButton" parent="."]
+offset_left = 144.0
+offset_right = 160.0
+offset_bottom = 16.0
+texture_normal = ExtResource("3_gouhi")
+texture_pressed = ExtResource("4_46fy8")
+texture_hover = ExtResource("5_4nowe")
+
+[node name="infoBox" type="ColorRect" parent="."]
+offset_left = 56.0
+offset_top = 3.0
+offset_right = 102.0
+offset_bottom = 15.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="achievements" type="RichTextLabel" parent="infoBox"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 941.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "Achievements"
+
+[node name="box" type="Sprite2D" parent="infoBox"]
+position = Vector2(23, 6)
+scale = Vector2(1.16667, 1)
+texture = ExtResource("6_o7hrm")
+
+[node name="S50" type="Sprite2D" parent="."]
+position = Vector2(26, 25)
+texture = ExtResource("7_bhu5k")
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="infoBox" type="ColorRect" parent="S50"]
+offset_left = -19.0
+offset_top = 11.0
+offset_right = 21.0
+offset_bottom = 23.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="S50/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("6_o7hrm")
+
+[node name="info" type="RichTextLabel" parent="S50/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "   Score 50"
+
+[node name="S100" type="Sprite2D" parent="."]
+position = Vector2(26, 61)
+texture = ExtResource("7_bhu5k")
+hframes = 16
+vframes = 12
+frame = 91
+
+[node name="infoBox" type="ColorRect" parent="S100"]
+offset_left = -19.0
+offset_top = 11.0
+offset_right = 21.0
+offset_bottom = 23.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="S100/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("6_o7hrm")
+
+[node name="info" type="RichTextLabel" parent="S100/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "  Score 100"
+
+[node name="S500" type="Sprite2D" parent="."]
+position = Vector2(125, 25)
+texture = ExtResource("7_bhu5k")
+hframes = 16
+vframes = 12
+frame = 107
+
+[node name="infoBox" type="ColorRect" parent="S500"]
+offset_left = -19.0
+offset_top = 11.0
+offset_right = 21.0
+offset_bottom = 23.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="S500/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("6_o7hrm")
+
+[node name="info" type="RichTextLabel" parent="S500/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "  Score 500"
+
+[node name="S1k" type="Sprite2D" parent="."]
+position = Vector2(126, 62)
+texture = ExtResource("7_bhu5k")
+hframes = 16
+vframes = 12
+frame = 123
+
+[node name="infoBox" type="ColorRect" parent="S1k"]
+offset_left = -19.0
+offset_top = 11.0
+offset_right = 21.0
+offset_bottom = 23.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="S1k/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("6_o7hrm")
+
+[node name="info" type="RichTextLabel" parent="S1k/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = " Score 1000"
+
+[node name="highScore1" type="ColorRect" parent="."]
+offset_left = 56.0
+offset_top = 47.0
+offset_right = 96.0
+offset_bottom = 59.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="highScore1"]
+position = Vector2(20, 6)
+texture = ExtResource("6_o7hrm")
+
+[node name="info" type="RichTextLabel" parent="highScore1"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "High Score:"
+
+[node name="highScore2" type="ColorRect" parent="."]
+offset_left = 56.0
+offset_top = 59.0
+offset_right = 96.0
+offset_bottom = 71.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="highScore2"]
+position = Vector2(20, 6)
+texture = ExtResource("6_o7hrm")
+
+[node name="info" type="RichTextLabel" parent="highScore2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "abx"
+
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

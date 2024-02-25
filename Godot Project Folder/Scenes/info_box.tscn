@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgtkww5pnaw5e"]
+
+[ext_resource type="Texture2D" uid="uid://lg1cxlj0scge" path="res://Assets/Art/spriteSheet.png" id="1_ud2pp"]
+
+[node name="InfoBox" type="Node2D"]
+
+[node name="infoBG" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 57.0
+offset_bottom = 67.0
+color = Color(1, 0.682353, 0.788235, 1)
+
+[node name="topBox" type="Sprite2D" parent="."]
+position = Vector2(29, 6)
+texture = ExtResource("1_ud2pp")
+hframes = 4
+vframes = 12
+frame = 11
+
+[node name="sideL" type="Sprite2D" parent="."]
+position = Vector2(5, 35)
+rotation = 1.5708
+scale = Vector2(2.07914, 1)
+texture = ExtResource("1_ud2pp")
+hframes = 12
+vframes = 12
+frame = 46
+
+[node name="sideR" type="Sprite2D" parent="."]
+position = Vector2(53, 36)
+rotation = 1.5708
+scale = Vector2(2.07914, 1)
+texture = ExtResource("1_ud2pp")
+flip_v = true
+hframes = 12
+vframes = 12
+frame = 46
+
+[node name="bottomBox" type="Sprite2D" parent="."]
+position = Vector2(29, 63)
+texture = ExtResource("1_ud2pp")
+hframes = 4
+vframes = 12
+frame = 15

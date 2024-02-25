@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmwahmj07kg1o"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/pause_screen.gd" id="1_hkv8w"]
+[ext_resource type="Shader" path="res://Assets/Scripts/pause_fuzzy.gdshader" id="1_qxfwp"]
+[ext_resource type="Texture2D" uid="uid://b33vqepj0vkcc" path="res://Assets/Art/UI/play_normal.png" id="2_fgvfh"]
+[ext_resource type="Texture2D" uid="uid://bctpf3gnja5l6" path="res://Assets/Art/UI/play_pressed.png" id="3_b4hu8"]
+[ext_resource type="Texture2D" uid="uid://bd3yu2ngcr6pl" path="res://Assets/Art/UI/play_hover.png" id="4_v7ww6"]
+[ext_resource type="Texture2D" uid="uid://bt7yerfe55xli" path="res://Assets/Art/UI/cross_normal.png" id="5_ar4ua"]
+[ext_resource type="Texture2D" uid="uid://buhhsdk72k6jr" path="res://Assets/Art/UI/cross_pressed.png" id="6_2uhqi"]
+[ext_resource type="Texture2D" uid="uid://d0v1ywvrpo0v3" path="res://Assets/Art/UI/cross_hover.png" id="7_6k1c2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b4q40"]
+shader = ExtResource("1_qxfwp")
+shader_parameter/amount = 40.0
+
+[node name="pause_screen" type="CanvasLayer"]
+process_mode = 2
+scale = Vector2(6, 6)
+transform = Transform2D(6, 0, 0, 6, 0, 0)
+script = ExtResource("1_hkv8w")
+
+[node name="fuzzy" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_b4q40")
+offset_right = 160.0
+offset_bottom = 94.0
+color = Color(1, 0.682353, 0.788235, 1)
+
+[node name="button_holder" type="VBoxContainer" parent="."]
+offset_left = 72.0
+offset_top = 28.0
+offset_right = 88.0
+offset_bottom = 64.0
+metadata/_edit_group_ = true
+
+[node name="unpause" type="TextureButton" parent="button_holder"]
+layout_mode = 2
+texture_normal = ExtResource("2_fgvfh")
+texture_pressed = ExtResource("3_b4hu8")
+texture_hover = ExtResource("4_v7ww6")
+
+[node name="close" type="TextureButton" parent="button_holder"]
+layout_mode = 2
+texture_normal = ExtResource("5_ar4ua")
+texture_pressed = ExtResource("6_2uhqi")
+texture_hover = ExtResource("7_6k1c2")
+
+[connection signal="pressed" from="button_holder/unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="button_holder/close" to="." method="_on_close_pressed"]
