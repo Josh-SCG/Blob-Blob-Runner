@@ -1,0 +1,121 @@
+[gd_scene load_steps=14 format=3 uid="uid://bjljsrbv0biqj"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/runnerLevel.gd" id="1_sto34"]
+[ext_resource type="Shader" path="res://Assets/Scripts/moveTexture.gdshader" id="2_2u83s"]
+[ext_resource type="Texture2D" uid="uid://c5qpivjw7wgga" path="res://Assets/Art/bricks.png" id="3_45loh"]
+[ext_resource type="Texture2D" uid="uid://csadttroiicpx" path="res://Assets/Art/floorSprite.png" id="4_33eb8"]
+[ext_resource type="Script" path="res://Assets/Scripts/player.gd" id="5_37gqp"]
+[ext_resource type="Texture2D" uid="uid://lg1cxlj0scge" path="res://Assets/Art/spriteSheet.png" id="6_rlmys"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p5ik2"]
+shader = ExtResource("2_2u83s")
+shader_parameter/speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i4uwn"]
+shader = ExtResource("2_2u83s")
+shader_parameter/speed = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxa87"]
+size = Vector2(192, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ppft"]
+size = Vector2(16, 14)
+
+[sub_resource type="Animation" id="Animation_hnefe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [130]
+}
+
+[sub_resource type="Animation" id="Animation_gubvx"]
+resource_name = "running"
+length = 1.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [130, 131, 132, 133, 134, 135]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lpuaj"]
+_data = {
+"RESET": SubResource("Animation_hnefe"),
+"running": SubResource("Animation_gubvx")
+}
+
+[node name="the_game" type="Node2D"]
+script = ExtResource("1_sto34")
+
+[node name="background" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_p5ik2")
+offset_left = -6.0
+offset_top = -8.0
+offset_right = 165.0
+offset_bottom = 91.0
+texture = ExtResource("3_45loh")
+stretch_mode = 1
+
+[node name="shadow" type="ColorRect" parent="background"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 175.0
+offset_bottom = 106.0
+color = Color(0, 0, 0, 0.682353)
+
+[node name="floor" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_i4uwn")
+offset_left = -12.0
+offset_top = 74.0
+offset_right = 180.0
+offset_bottom = 90.0
+texture = ExtResource("4_33eb8")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor/StaticBody2D"]
+position = Vector2(96, 8)
+shape = SubResource("RectangleShape2D_dxa87")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(80, 45)
+zoom = Vector2(6, 6)
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(13, 62)
+script = ExtResource("5_37gqp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0ppft")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+texture = ExtResource("6_rlmys")
+hframes = 16
+vframes = 12
+frame = 130
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_lpuaj")
+}
+autoplay = "running"
