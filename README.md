@@ -13,7 +13,7 @@ The music is made in [FamiStudio](https://famistudio.org).
 ## High-level To-do
 - [x] Initialise Godot Project
 - [x] Import Assets
-- [ ] Set up game loop
-- [ ] Create menu screens
+- [x] Set up game loop
+- [x] Create menu screens
 - [ ] Export & Publish
 
