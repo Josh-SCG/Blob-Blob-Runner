@@ -11,8 +11,8 @@ The art is made in MS Paint.
 The music is made in [FamiStudio](https://famistudio.org).
 
 ## High-level To-do
-- [ ] Initialise Godot Project
-- [ ] Import Assets
+- [x] Initialise Godot Project
+- [x] Import Assets
 - [ ] Set up game loop
 - [ ] Create menu screens
 - [ ] Export & Publish
