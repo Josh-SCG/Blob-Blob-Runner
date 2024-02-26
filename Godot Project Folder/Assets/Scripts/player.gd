@@ -6,6 +6,7 @@ const ACCELERATION = 8
 const JUMP_FORCE = 250
 
 @onready var globalRef = get_node("/root/Global")
+@onready var musicRef = get_node("/root/Music")
 @export var PausePopUp:PackedScene
 var popUp = null
 
@@ -38,6 +39,7 @@ func movement():
 	if is_on_floor():
 		if Input.is_action_just_pressed("Jump"):
 			is_jumping = true
+			$AudioStreamPlayer.play()
 			velocity.y = -JUMP_FORCE
 		
 	if !is_on_floor():
@@ -64,4 +66,5 @@ func dead():
 	globalRef.shaderBackground = 2
 	get_parent().changeSpeed1()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	musicRef.play_menu_song()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var globalRef = get_node("/root/Global")
+@onready var musicRef = get_node("/root/Music")
 
 func _on_unpause_pressed():
 	get_tree().paused = false
@@ -10,5 +11,6 @@ func _on_unpause_pressed():
 
 func _on_close_pressed():
 	get_tree().paused = false
+	musicRef.play_menu_song()
 	globalRef.resetVar()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

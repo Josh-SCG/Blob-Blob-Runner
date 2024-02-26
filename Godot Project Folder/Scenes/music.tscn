@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmytbjhq2klc7"]
+
+[ext_resource type="AudioStream" uid="uid://wxst6m42sxmk" path="res://Assets/Art/Music/slow_jam.ogg" id="1_38mvq"]
+[ext_resource type="Script" path="res://Assets/Scripts/Music.gd" id="1_n0d2k"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_38mvq")
+volume_db = -5.0
+autoplay = true
+script = ExtResource("1_n0d2k")

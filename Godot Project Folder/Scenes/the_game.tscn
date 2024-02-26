@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjljsrbv0biqj"]
+[gd_scene load_steps=20 format=3 uid="uid://bjljsrbv0biqj"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/runnerLevel.gd" id="1_e1ucc"]
 [ext_resource type="Shader" path="res://Assets/Scripts/moveTexture.gdshader" id="2_4mu1l"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://51vvbx4dcq2h" path="res://Assets/Art/box.png" id="5_cfnry"]
 [ext_resource type="Texture2D" uid="uid://lg1cxlj0scge" path="res://Assets/Art/spriteSheet.png" id="6_lhkpj"]
 [ext_resource type="PackedScene" uid="uid://cmwahmj07kg1o" path="res://Scenes/pause_screen.tscn" id="7_61dea"]
+[ext_resource type="AudioStream" uid="uid://drxlufqi7g4ju" path="res://Assets/Art/Music/jump.wav" id="8_vjcra"]
 [ext_resource type="Script" path="res://Assets/Scripts/spawner.gd" id="9_tg6m2"]
 [ext_resource type="PackedScene" uid="uid://bprrglww8ex53" path="res://Scenes/enemy_1.tscn" id="10_ktwry"]
 [ext_resource type="PackedScene" uid="uid://d32nbnva3uh48" path="res://Scenes/collectable.tscn" id="11_han1p"]
@@ -127,6 +128,10 @@ libraries = {
 }
 autoplay = "running"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="player"]
+stream = ExtResource("8_vjcra")
+autoplay = true
+
 [node name="scoreNode" type="ColorRect" parent="."]
 offset_left = 4.0
 offset_top = 3.0
@@ -140,6 +145,7 @@ position = Vector2(20, 6)
 texture = ExtResource("5_cfnry")
 
 [node name="scoreLabel" type="RichTextLabel" parent="scoreNode"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
 offset_right = 1542.0

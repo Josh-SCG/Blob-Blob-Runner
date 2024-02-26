@@ -21,16 +21,16 @@ func _process(_delta):
 		$floor.material.set_shader_parameter("speed",$floor.material.get_shader_parameter("speed")-0.5)
 		globalRef.scoreMultiplier /= 2
 		globalRef.speedMultiplier -= 0.5
-		$spawner/Timer.wait_time += 0.5
-		$player.skew -= 0.12
+		$spawner/Timer.wait_time += 0.6
+		$player.skew -= 0.1
 	
 	if Input.is_action_just_pressed("speedUp") && $background.material.get_shader_parameter("speed") < 7.5 && $floor.material.get_shader_parameter("speed") < 2.5:
 		$background.material.set_shader_parameter("speed",$background.material.get_shader_parameter("speed")+1.5)
 		$floor.material.set_shader_parameter("speed",$floor.material.get_shader_parameter("speed")+0.5)
 		globalRef.scoreMultiplier *= 2
 		globalRef.speedMultiplier += 0.5
-		$spawner/Timer.wait_time -= 0.5
-		$player.skew += 0.12
+		$spawner/Timer.wait_time -= 0.6
+		$player.skew += 0.1
 
 func paused():
 	if Input.is_action_just_pressed("Pause"):

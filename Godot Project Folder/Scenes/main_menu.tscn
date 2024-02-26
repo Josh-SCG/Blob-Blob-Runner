@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://djk6fm7y0hpds"]
+[gd_scene load_steps=18 format=3 uid="uid://djk6fm7y0hpds"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/main_menu.gd" id="1_3wxxk"]
 [ext_resource type="Texture2D" uid="uid://c5qpivjw7wgga" path="res://Assets/Art/bricks.png" id="1_ab5nu"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dhyte3tuomusr" path="res://Assets/Art/UI/achieve_normal.png" id="13_5qtjs"]
 [ext_resource type="Texture2D" uid="uid://bmy2mmybaa1t5" path="res://Assets/Art/UI/achieve_pressed.png" id="14_2m4oj"]
 [ext_resource type="Texture2D" uid="uid://iuj41kfxatt8" path="res://Assets/Art/UI/achieve_hover.png" id="15_o2aeb"]
+[ext_resource type="Texture2D" uid="uid://51vvbx4dcq2h" path="res://Assets/Art/box.png" id="17_sc4ys"]
 
 [node name="mainMenu" type="Node2D"]
 script = ExtResource("1_3wxxk")
@@ -79,28 +80,28 @@ vframes = 12
 frame = 35
 
 [node name="start" type="TextureButton" parent="."]
-offset_left = 73.0
-offset_top = 52.0
-offset_right = 89.0
-offset_bottom = 68.0
+offset_left = 65.0
+offset_top = 55.0
+offset_right = 81.0
+offset_bottom = 71.0
 texture_normal = ExtResource("4_f28k2")
 texture_pressed = ExtResource("5_m5uhf")
 texture_hover = ExtResource("6_gptqo")
 
 [node name="howTo" type="TextureButton" parent="."]
-offset_left = 92.0
-offset_top = 52.0
-offset_right = 108.0
-offset_bottom = 68.0
+offset_left = 84.0
+offset_top = 55.0
+offset_right = 100.0
+offset_bottom = 71.0
 texture_normal = ExtResource("10_jy4nq")
 texture_pressed = ExtResource("11_bdjf0")
 texture_hover = ExtResource("12_jre4b")
 
 [node name="achievements" type="TextureButton" parent="."]
-offset_left = 111.0
-offset_top = 52.0
-offset_right = 127.0
-offset_bottom = 68.0
+offset_left = 103.0
+offset_top = 55.0
+offset_right = 119.0
+offset_bottom = 71.0
 texture_normal = ExtResource("13_5qtjs")
 texture_pressed = ExtResource("14_2m4oj")
 texture_hover = ExtResource("15_o2aeb")
@@ -113,6 +114,30 @@ offset_bottom = 16.0
 texture_normal = ExtResource("7_1btdb")
 texture_pressed = ExtResource("8_lsb0i")
 texture_hover = ExtResource("9_itb1j")
+
+[node name="infoBox" type="ColorRect" parent="."]
+offset_left = 109.0
+offset_top = 38.0
+offset_right = 151.0
+offset_bottom = 50.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="P_label" type="RichTextLabel" parent="infoBox"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 861.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = " By: Josh-SCG"
+
+[node name="box" type="Sprite2D" parent="infoBox"]
+position = Vector2(21, 6)
+scale = Vector2(1.08333, 1)
+texture = ExtResource("17_sc4ys")
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="howTo" to="." method="_on_how_to_pressed"]

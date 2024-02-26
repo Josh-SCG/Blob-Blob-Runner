@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Blob Blob Runner"
 config/description="An endless runner game!"
+config/version="v1.0"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=144
@@ -19,12 +20,13 @@ boot_splash/bg_color=Color(1, 0.682353, 0.788235, 1)
 boot_splash/image="res://Assets/Art/splashLarge.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
-boot_splash/minimum_display_time=100
+config/icon="res://Assets/Art/ico.png"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 
 Global="*res://Assets/Scripts/global.gd"
+Music="*res://Scenes/music.tscn"
 
 [display]
 
