@@ -41,14 +41,16 @@ texture_normal = ExtResource("3_1apr7")
 texture_pressed = ExtResource("4_ky10g")
 texture_hover = ExtResource("5_jecs8")
 
-[node name="Q" type="Sprite2D" parent="."]
+[node name="PC_controls" type="Node2D" parent="."]
+
+[node name="Q" type="Sprite2D" parent="PC_controls"]
 position = Vector2(13, 13)
 texture = ExtResource("6_b4n80")
 hframes = 16
 vframes = 12
 frame = 105
 
-[node name="infoBox" type="ColorRect" parent="Q"]
+[node name="infoBox" type="ColorRect" parent="PC_controls/Q"]
 offset_left = 20.0
 offset_top = -6.0
 offset_right = 60.0
@@ -56,11 +58,11 @@ offset_bottom = 6.0
 color = Color(1, 0.682353, 0.788235, 1)
 metadata/_edit_group_ = true
 
-[node name="box" type="Sprite2D" parent="Q/infoBox"]
+[node name="box" type="Sprite2D" parent="PC_controls/Q/infoBox"]
 position = Vector2(20, 6)
 texture = ExtResource("7_rikt0")
 
-[node name="Q_label" type="RichTextLabel" parent="Q/infoBox"]
+[node name="Q_label" type="RichTextLabel" parent="PC_controls/Q/infoBox"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
@@ -71,14 +73,14 @@ theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
 theme_override_font_sizes/normal_font_size = 128
 text = " Slow down"
 
-[node name="W" type="Sprite2D" parent="."]
+[node name="W" type="Sprite2D" parent="PC_controls"]
 position = Vector2(13, 34)
 texture = ExtResource("6_b4n80")
 hframes = 16
 vframes = 12
 frame = 120
 
-[node name="infoBox" type="ColorRect" parent="W"]
+[node name="infoBox" type="ColorRect" parent="PC_controls/W"]
 offset_left = 20.0
 offset_top = -6.0
 offset_right = 60.0
@@ -86,11 +88,11 @@ offset_bottom = 6.0
 color = Color(1, 0.682353, 0.788235, 1)
 metadata/_edit_group_ = true
 
-[node name="box" type="Sprite2D" parent="W/infoBox"]
+[node name="box" type="Sprite2D" parent="PC_controls/W/infoBox"]
 position = Vector2(20, 6)
 texture = ExtResource("7_rikt0")
 
-[node name="W_label" type="RichTextLabel" parent="W/infoBox"]
+[node name="W_label" type="RichTextLabel" parent="PC_controls/W/infoBox"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
@@ -101,14 +103,14 @@ theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
 theme_override_font_sizes/normal_font_size = 128
 text = "      Jump"
 
-[node name="E" type="Sprite2D" parent="."]
+[node name="E" type="Sprite2D" parent="PC_controls"]
 position = Vector2(13, 55)
 texture = ExtResource("6_b4n80")
 hframes = 16
 vframes = 12
 frame = 104
 
-[node name="infoBox" type="ColorRect" parent="E"]
+[node name="infoBox" type="ColorRect" parent="PC_controls/E"]
 offset_left = 20.0
 offset_top = -6.0
 offset_right = 60.0
@@ -116,11 +118,11 @@ offset_bottom = 6.0
 color = Color(1, 0.682353, 0.788235, 1)
 metadata/_edit_group_ = true
 
-[node name="box" type="Sprite2D" parent="E/infoBox"]
+[node name="box" type="Sprite2D" parent="PC_controls/E/infoBox"]
 position = Vector2(20, 6)
 texture = ExtResource("7_rikt0")
 
-[node name="E_label" type="RichTextLabel" parent="E/infoBox"]
+[node name="E_label" type="RichTextLabel" parent="PC_controls/E/infoBox"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
@@ -131,14 +133,14 @@ theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
 theme_override_font_sizes/normal_font_size = 128
 text = "  Speed Up"
 
-[node name="P" type="Sprite2D" parent="."]
+[node name="P" type="Sprite2D" parent="PC_controls"]
 position = Vector2(13, 76)
 texture = ExtResource("6_b4n80")
 hframes = 16
 vframes = 12
 frame = 106
 
-[node name="infoBox" type="ColorRect" parent="P"]
+[node name="infoBox" type="ColorRect" parent="PC_controls/P"]
 offset_left = 20.0
 offset_top = -5.0
 offset_right = 60.0
@@ -146,11 +148,11 @@ offset_bottom = 7.0
 color = Color(1, 0.682353, 0.788235, 1)
 metadata/_edit_group_ = true
 
-[node name="box" type="Sprite2D" parent="P/infoBox"]
+[node name="box" type="Sprite2D" parent="PC_controls/P/infoBox"]
 position = Vector2(20, 6)
 texture = ExtResource("7_rikt0")
 
-[node name="P_label" type="RichTextLabel" parent="P/infoBox"]
+[node name="P_label" type="RichTextLabel" parent="PC_controls/P/infoBox"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
@@ -197,5 +199,139 @@ scale = Vector2(0.05, 0.05)
 theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
 theme_override_font_sizes/normal_font_size = 128
 text = " Gameplay"
+
+[node name="mobilePopUp" type="Node2D" parent="."]
+visible = false
+
+[node name="mobileSpeedDown" type="Sprite2D" parent="mobilePopUp"]
+position = Vector2(13, 13)
+texture = ExtResource("6_b4n80")
+flip_h = true
+hframes = 16
+vframes = 12
+frame = 56
+
+[node name="infoBox" type="ColorRect" parent="mobilePopUp/mobileSpeedDown"]
+offset_left = 20.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 6.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="mobilePopUp/mobileSpeedDown/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("7_rikt0")
+
+[node name="P_label" type="RichTextLabel" parent="mobilePopUp/mobileSpeedDown/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = " Slow down"
+
+[node name="mobileJump" type="Sprite2D" parent="mobilePopUp"]
+position = Vector2(13, 34)
+texture = ExtResource("6_b4n80")
+hframes = 16
+vframes = 12
+frame = 121
+
+[node name="infoBox" type="ColorRect" parent="mobilePopUp/mobileJump"]
+offset_left = 20.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 6.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="mobilePopUp/mobileJump/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("7_rikt0")
+
+[node name="P_label" type="RichTextLabel" parent="mobilePopUp/mobileJump/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "      Jump"
+
+[node name="P_label2" type="RichTextLabel" parent="mobilePopUp/mobileJump"]
+offset_left = -6.0
+offset_top = -5.0
+offset_right = 314.0
+offset_bottom = 195.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.0666667, 0.0156863, 0.27451, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "TAP"
+
+[node name="mobileSpeedUp" type="Sprite2D" parent="mobilePopUp"]
+position = Vector2(13, 55)
+texture = ExtResource("6_b4n80")
+hframes = 16
+vframes = 12
+frame = 56
+
+[node name="infoBox" type="ColorRect" parent="mobilePopUp/mobileSpeedUp"]
+offset_left = 20.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 6.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="mobilePopUp/mobileSpeedUp/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("7_rikt0")
+
+[node name="P_label" type="RichTextLabel" parent="mobilePopUp/mobileSpeedUp/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "  Speed Up"
+
+[node name="mobilePause" type="Sprite2D" parent="mobilePopUp"]
+position = Vector2(13, 76)
+texture = ExtResource("6_b4n80")
+hframes = 16
+vframes = 12
+frame = 136
+
+[node name="infoBox" type="ColorRect" parent="mobilePopUp/mobilePause"]
+offset_left = 20.0
+offset_top = -5.0
+offset_right = 60.0
+offset_bottom = 7.0
+color = Color(1, 0.682353, 0.788235, 1)
+metadata/_edit_group_ = true
+
+[node name="box" type="Sprite2D" parent="mobilePopUp/mobilePause/infoBox"]
+position = Vector2(20, 6)
+texture = ExtResource("7_rikt0")
+
+[node name="P_label" type="RichTextLabel" parent="mobilePopUp/mobilePause/infoBox"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 742.0
+offset_bottom = 201.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0.317647, 0.0196078, 0.380392, 1)
+theme_override_font_sizes/normal_font_size = 128
+text = "     Pause"
 
 [connection signal="pressed" from="close" to="." method="_on_close_pressed"]

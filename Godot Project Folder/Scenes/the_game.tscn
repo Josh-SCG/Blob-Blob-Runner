@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjljsrbv0biqj"]
+[gd_scene load_steps=25 format=3 uid="uid://bjljsrbv0biqj"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/runnerLevel.gd" id="1_e1ucc"]
 [ext_resource type="Shader" path="res://Assets/Scripts/moveTexture.gdshader" id="2_4mu1l"]
@@ -12,6 +12,10 @@
 [ext_resource type="Script" path="res://Assets/Scripts/spawner.gd" id="9_tg6m2"]
 [ext_resource type="PackedScene" uid="uid://bprrglww8ex53" path="res://Scenes/enemy_1.tscn" id="10_ktwry"]
 [ext_resource type="PackedScene" uid="uid://d32nbnva3uh48" path="res://Scenes/collectable.tscn" id="11_han1p"]
+[ext_resource type="Texture2D" uid="uid://cjaw7hn36fq2d" path="res://Assets/Art/UI/pause_normal.png" id="13_cgdu1"]
+[ext_resource type="Texture2D" uid="uid://bquu0h0l1effj" path="res://Assets/Art/UI/pause_pressed.png" id="14_uvw2d"]
+[ext_resource type="Texture2D" uid="uid://b33vqepj0vkcc" path="res://Assets/Art/UI/play_normal.png" id="15_pav0f"]
+[ext_resource type="Texture2D" uid="uid://bctpf3gnja5l6" path="res://Assets/Art/UI/play_pressed.png" id="16_85cdg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p5ik2"]
 shader = ExtResource("2_4mu1l")
@@ -65,6 +69,8 @@ _data = {
 "RESET": SubResource("Animation_hnefe"),
 "running": SubResource("Animation_gubvx")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcebp"]
 
 [node name="the_game" type="Node2D"]
 script = ExtResource("1_e1ucc")
@@ -164,5 +170,33 @@ metadata/_edit_group_ = true
 [node name="Timer" type="Timer" parent="spawner"]
 wait_time = 3.0
 autostart = true
+
+[node name="mobileControls" type="Node2D" parent="."]
+visible = false
+
+[node name="mobileJump" type="TouchScreenButton" parent="mobileControls"]
+position = Vector2(61, 42)
+scale = Vector2(6, 4)
+shape = SubResource("RectangleShape2D_bcebp")
+action = "Jump"
+
+[node name="pause" type="TouchScreenButton" parent="mobileControls"]
+position = Vector2(140, 3)
+texture_normal = ExtResource("13_cgdu1")
+texture_pressed = ExtResource("14_uvw2d")
+action = "Pause"
+
+[node name="speedUp" type="TouchScreenButton" parent="mobileControls"]
+position = Vector2(140, 74)
+texture_normal = ExtResource("15_pav0f")
+texture_pressed = ExtResource("16_85cdg")
+action = "speedUp"
+
+[node name="speedDown" type="TouchScreenButton" parent="mobileControls"]
+position = Vector2(20, 90)
+rotation = 3.14159
+texture_normal = ExtResource("15_pav0f")
+texture_pressed = ExtResource("16_85cdg")
+action = "speedDown"
 
 [connection signal="timeout" from="spawner/Timer" to="spawner" method="_on_timer_timeout"]

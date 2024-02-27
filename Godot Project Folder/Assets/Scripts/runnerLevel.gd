@@ -3,6 +3,7 @@ extends Node2D
 @onready var globalRef = get_node("/root/Global")
 @onready var floorSpeed = 0.5
 @onready var backgroundSpeed = 2
+@onready var isMobile = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,6 +11,9 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	globalRef.shaderFloor = $floor.material.get_shader_parameter("speed")
 	globalRef.shaderBackground = $background.material.get_shader_parameter("speed")
+	isMobile = JavaScriptBridge.eval("/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)", true)
+	if isMobile:
+		$mobileControls.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
